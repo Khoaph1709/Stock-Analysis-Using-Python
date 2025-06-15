@@ -146,19 +146,16 @@ document.addEventListener('DOMContentLoaded', function() {
     const statNumbers = document.querySelectorAll('.stat-number, .metric-value');
      const animateCounter = function(element) {
         const originalText = element.textContent;
-        let target;
-        let isPercentage = false;
-        let isDollar = false;
-
-        if (originalText.includes("%")) {
-            target = parseFloat(originalText.replace("%", ""));
-            isPercentage = true;
-        } else if (originalText.includes("$")) {
-            target = parseFloat(originalText.replace("$", ""));
-            isDollar = true;
-        } else {
-            target = parseFloat(originalText);
+        const numericMatch = originalText.match(/(\$)?[\s]*([\d.]+)([A-Za-z%]*)/); // Capture optional '$', numeric part, and suffix
+        
+        if (!numericMatch) {
+            element.textContent = originalText; // If no match, just display original text
+            return;
         }
+
+        const prefix = numericMatch[1] || ""; // Capture '$' if present
+        let target = parseFloat(numericMatch[2]); // Numeric part
+        const suffix = numericMatch[3] || ""; // Suffix (e.g., 'B', '%')
 
         const increment = target / 100;
         let current = 0;
@@ -170,16 +167,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 clearInterval(timer);
             }
 
-            let formattedText = current.toFixed(3); // Keep 3 decimal places for precision
-            if (isDollar) {
-                formattedText = "$" + formattedText;
-            } else if (isPercentage) {
-                formattedText = formattedText + "%";
-            }
-            element.textContent = formattedText;
+            let formattedValue;
+            // Determine decimal places from the original numeric part
+            const originalNumericPart = numericMatch[2];
+            const decimalPlaces = originalNumericPart.includes(".") ? originalNumericPart.split(".")[1].length : 0;
+            formattedValue = current.toFixed(decimalPlaces);
+            
+            element.textContent = prefix + formattedValue + suffix;
         }, 20);
-    };
-    
+    };    
     // Trigger counter animation when elements come into view
     const counterObserver = new IntersectionObserver(function(entries) {
         entries.forEach(entry => {
