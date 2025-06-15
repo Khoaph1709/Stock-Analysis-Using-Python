@@ -144,23 +144,38 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Add counter animation for statistics
     const statNumbers = document.querySelectorAll('.stat-number, .metric-value');
-    
-    const animateCounter = function(element) {
-        const target = parseInt(element.textContent.replace(/[^\d]/g, ''));
+     const animateCounter = function(element) {
+        const originalText = element.textContent;
+        let target;
+        let isPercentage = false;
+        let isDollar = false;
+
+        if (originalText.includes("%")) {
+            target = parseFloat(originalText.replace("%", ""));
+            isPercentage = true;
+        } else if (originalText.includes("$")) {
+            target = parseFloat(originalText.replace("$", ""));
+            isDollar = true;
+        } else {
+            target = parseFloat(originalText);
+        }
+
         const increment = target / 100;
         let current = 0;
-        
+
         const timer = setInterval(function() {
             current += increment;
             if (current >= target) {
                 current = target;
                 clearInterval(timer);
             }
-            
-            // Preserve original formatting
-            const originalText = element.textContent;
-            const numericPart = Math.floor(current);
-            const formattedText = originalText.replace(/\d+/, numericPart);
+
+            let formattedText = current.toFixed(3); // Keep 3 decimal places for precision
+            if (isDollar) {
+                formattedText = "$" + formattedText;
+            } else if (isPercentage) {
+                formattedText = formattedText + "%";
+            }
             element.textContent = formattedText;
         }, 20);
     };
