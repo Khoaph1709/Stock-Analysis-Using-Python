@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semiconductor Stock Market Analysis - TSM Focus</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-chart-line"></i>
+                <span>Semiconductor Analysis</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#overview" class="nav-link">Overview</a></li>
+                <li><a href="#analysis" class="nav-link">Market Analysis</a></li>
+                <li><a href="#tsm-focus" class="nav-link">TSM Focus</a></li>
+                <li><a href="#lstm" class="nav-link">LSTM Model</a></li>
+                <li><a href="#conclusion" class="nav-link">Conclusion</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Semiconductor Stock Market Analysis</h1>
+            <p class="hero-subtitle">Comprehensive analysis of semiconductor stocks with focus on Taiwan Semiconductor Manufacturing Company (TSM)</p>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number">4</span>
+                    <span class="stat-label">Stocks Analyzed</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">2024</span>
+                    <span class="stat-label">Analysis Period</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">42.6%</span>
+                    <span class="stat-label">TSM YTD Growth</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="chart-preview">
+                <i class="fas fa-chart-area"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Overview -->
+    <section id="overview" class="section">
+        <div class="container">
+            <h2 class="section-title">Project Overview</h2>
+            <div class="overview-grid">
+                <div class="overview-card">
+                    <div class="card-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>Data Collection</h3>
+                    <p>Historical stock data retrieved from Yahoo Finance API for four major semiconductor companies: TSM, NVDA, IONQ, and AMD covering the entire 2024 period.</p>
+                </div>
+                <div class="overview-card">
+                    <div class="card-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h3>Technical Analysis</h3>
+                    <p>Comprehensive technical analysis including moving averages (10, 20, 50-day), RSI indicators, Bollinger Bands, and MACD analysis for trend identification.</p>
+                </div>
+                <div class="overview-card">
+                    <div class="card-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>LSTM Modeling</h3>
+                    <p>Advanced Long Short-Term Memory neural network implementation for stock price prediction with interactive visualization of forecasted trends.</p>
+                </div>
+                <div class="overview-card">
+                    <div class="card-icon">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <h3>Risk Assessment</h3>
+                    <p>Detailed risk-return analysis, correlation studies, and volatility assessment to identify optimal investment opportunities in the semiconductor sector.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Market Analysis -->
+    <section id="analysis" class="section bg-light">
+        <div class="container">
+            <h2 class="section-title">Semiconductor Market Analysis</h2>
+            
+            <!-- Stock Performance Comparison -->
+            <div class="analysis-block">
+                <h3 class="block-title">Stock Performance Comparison (2024)</h3>
+                <div class="chart-container">
+                    <img src="assets/images/Closing_price.png" alt="Closing Price Comparison" class="analysis-chart">
+                </div>
+                <p class="chart-description">
+                    The closing price analysis reveals significant performance variations among the four semiconductor stocks throughout 2024. 
+                    Taiwan Semiconductor (TSM) demonstrated remarkable growth, rising from approximately $100 to over $200, representing a doubling of value. 
+                    NVIDIA (NVDA) showed strong performance with substantial volatility, while IonQ (IONQ) exhibited explosive growth in the latter half of the year. 
+                    AMD experienced more moderate growth with periodic fluctuations.
+                </p>
+            </div>
+
+            <!-- Trading Volume Analysis -->
+            <div class="analysis-block">
+                <h3 class="block-title">Trading Volume Patterns</h3>
+                <div class="chart-container">
+                    <img src="assets/images/Trading_Volume.png" alt="Trading Volume Analysis" class="analysis-chart">
+                </div>
+                <p class="chart-description">
+                    Trading volume analysis indicates varying levels of market interest and liquidity across the semiconductor stocks. 
+                    TSM maintained consistent trading volumes with periodic spikes during earnings announcements and major industry events. 
+                    NVIDIA showed high volatility in trading volumes, reflecting its position as a key AI beneficiary. 
+                    The volume patterns provide insights into investor sentiment and market participation levels.
+                </p>
+            </div>
+
+            <!-- Moving Averages Analysis -->
+            <div class="analysis-block">
+                <h3 class="block-title">Moving Averages and Trend Analysis</h3>
+                <div class="chart-container">
+                    <img src="assets/images/MA.png" alt="Moving Averages Analysis" class="analysis-chart">
+                </div>
+                <p class="chart-description">
+                    The moving averages analysis (10, 20, and 50-day) reveals clear trend patterns for each semiconductor stock. 
+                    TSM's price consistently traded above its moving averages during the growth phase, indicating strong bullish momentum. 
+                    The convergence and divergence of moving averages provide critical signals for trend reversals and continuation patterns. 
+                    This technical analysis forms the foundation for understanding price momentum and potential entry/exit points.
+                </p>
+            </div>
+
+            <!-- Daily Returns Analysis -->
+            <div class="analysis-block">
+                <h3 class="block-title">Daily Returns Distribution</h3>
+                <div class="chart-grid">
+                    <div class="chart-item">
+                        <img src="assets/images/Daily_return.png" alt="Daily Returns Time Series" class="analysis-chart">
+                    </div>
+                    <div class="chart-item">
+                        <img src="assets/images/Daily_return_histogram.png" alt="Daily Returns Histogram" class="analysis-chart">
+                    </div>
+                </div>
+                <p class="chart-description">
+                    Daily returns analysis provides crucial insights into the volatility and risk characteristics of each semiconductor stock. 
+                    The time series plot shows the daily percentage changes, highlighting periods of high volatility and market stress. 
+                    The histogram distribution reveals that most stocks follow approximately normal distributions with varying degrees of skewness and kurtosis. 
+                    TSM demonstrates relatively stable daily returns compared to more volatile stocks like IONQ.
+                </p>
+            </div>
+
+            <!-- Correlation Analysis -->
+            <div class="analysis-block">
+                <h3 class="block-title">Correlation and Risk-Return Analysis</h3>
+                <div class="chart-grid">
+                    <div class="chart-item">
+                        <img src="assets/images/Correlation.png" alt="Correlation Matrix" class="analysis-chart">
+                    </div>
+                    <div class="chart-item">
+                        <img src="assets/images/Risk-return.png" alt="Risk-Return Scatter Plot" class="analysis-chart">
+                    </div>
+                </div>
+                <p class="chart-description">
+                    The correlation analysis reveals important relationships between semiconductor stocks, with TSM and NVDA showing strong positive correlation in their daily returns. 
+                    The risk-return scatter plot positions each stock based on expected returns versus standard deviation (risk). 
+                    TSM emerges as an attractive investment option, offering moderate risk with competitive returns. 
+                    This analysis is crucial for portfolio diversification and risk management strategies.
+                </p>
+            </div>
+
+            <!-- Additional Correlation Analysis -->
+            <div class="analysis-block">
+                <h3 class="block-title">Advanced Correlation Studies</h3>
+                <div class="chart-container">
+                    <img src="assets/images/Confusionmatrix.png" alt="Comparison of Correlation Matrices: Daily Returns vs. Closing Prices for Tech Stocks" class="analysis-chart">
+                </div>
+                <p class="chart-description">
+                    This chart presents a comparative analysis of two correlation heatmaps for four technology stocks: AMD, IONQ, NVDA, and TSM. The left heatmap illustrates the correlation between the stocks' daily returns, revealing generally positive but moderate relationships, such as the 0.62 correlation between NVDA and TSM, which indicates a tendency for their daily price changes to move in the same direction. In contrast, the right heatmap displays the correlation between their absolute closing prices, uncovering different and sometimes stronger relationships. Notably, it shows negative correlations, like between AMD and IONQ (-0.51), and a very strong positive correlation between the closing prices of NVDA and TSM (0.97). Together, these visualizations effectively contrast the short-term, day-to-day market dynamics with the longer-term price trends of the selected stocks.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- TSM Focus Section -->
+    <section id="tsm-focus" class="section">
+        <div class="container">
+            <h2 class="section-title">Taiwan Semiconductor Manufacturing Company (TSM) - Deep Dive Analysis</h2>
+            
+            <!-- Company Overview -->
+            <div class="tsm-overview">
+                <div class="company-header">
+                    <div class="company-info">
+                        <h3>Company Profile</h3>
+                        <p class="company-description">
+                            Taiwan Semiconductor Manufacturing Company (TSM) stands as the world's largest contract chipmaker and a critical player in the global semiconductor supply chain. 
+                            Founded in 1987, TSMC has established itself as the leading foundry service provider, manufacturing chips for major technology companies including Apple, NVIDIA, and AMD. 
+                            The company's advanced process technologies and manufacturing capabilities make it indispensable to the global technology ecosystem.
+                        </p>
+                    </div>
+                    <div class="key-metrics">
+                        <div class="metric-card">
+                            <span class="metric-value">$905.57B</span>
+                            <span class="metric-label">Market Cap</span>
+                        </div>
+                        <div class="metric-card">
+                            <span class="metric-value">54%</span>
+                            <span class="metric-label">Global Foundry Share</span>
+                        </div>
+                        <div class="metric-card">
+                            <span class="metric-value">3nm</span>
+                            <span class="metric-label">Leading Process Node</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Why TSM Stands Out -->
+            <div class="analysis-block">
+                <h3 class="block-title">Why TSM Emerges as the Top Choice</h3>
+                <div class="reasons-grid">
+                    <div class="reason-card">
+                        <div class="reason-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <h4>Market Leadership</h4>
+                        <p>TSM commands over 54% of the global foundry market, with unparalleled manufacturing capabilities and technological expertise that competitors struggle to match.</p>
+                    </div>
+                    <div class="reason-card">
+                        <div class="reason-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h4>Consistent Growth</h4>
+                        <p>Demonstrated 42.6% year-to-date revenue growth in 2025, with strong fundamentals and predictable cash flows from long-term customer contracts.</p>
+                    </div>
+                    <div class="reason-card">
+                        <div class="reason-icon">
+                            <i class="fas fa-microchip"></i>
+                        </div>
+                        <h4>AI Beneficiary</h4>
+                        <p>Positioned at the center of the AI revolution, manufacturing cutting-edge chips for NVIDIA, Apple, and other AI leaders with revenue expected to double in 2025.</p>
+                    </div>
+                    <div class="reason-card">
+                        <div class="reason-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h4>Risk-Adjusted Returns</h4>
+                        <p>Optimal position on the risk-return spectrum, offering attractive returns with lower volatility compared to other semiconductor stocks in our analysis.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Technical Analysis for TSM -->
+            <div class="analysis-block">
+                <h3 class="block-title">TSM Technical Analysis</h3>
+                <div class="chart-container">
+                    <img src="assets/images/TA_visulization.png" alt="TSM Technical Analysis" class="analysis-chart">
+                </div>
+                <p class="chart-description">
+                    The comprehensive technical analysis of TSM reveals strong bullish signals across multiple indicators. 
+                    The Bollinger Bands analysis shows the stock trading near the upper band, indicating strong momentum. 
+                    The MACD indicator demonstrates positive momentum with the signal line above the baseline. 
+                    The RSI (14-day) oscillates between oversold and overbought conditions, providing entry and exit signals for traders. 
+                    These technical indicators collectively suggest a strong upward trend with periodic consolidation phases.
+                </p>
+            </div>
+
+            <!-- Fundamental Analysis Metrics -->
+            <div class="analysis-block">
+                <h3 class="block-title">Fundamental Analysis Metrics</h3>
+                <div class="table-container">
+                    <table class="metrics-table">
+                        <thead>
+                            <tr>
+                                <th>Ticker</th>
+                                <th>P/E</th>
+                                <th>Forward P/E</th>
+                                <th>PEG Ratio</th>
+                                <th>EPS</th>
+                                <th>Price/Book</th>
+                                <th>Dividend Yield (%)</th>
+                                <th>ROE (%)</th>
+                                <th>Debt/Equity</th>
+                                <th>Profit Margin (%)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="tsm-row">
+                                <td class="ticker-cell">TSM</td>
+                                <td>25.25</td>
+                                <td>26.13</td>
+                                <td>N/A</td>
+                                <td>8.36</td>
+                                <td>1.20</td>
+                                <td>1.56</td>
+                                <td>31.64</td>
+                                <td>23.49</td>
+                                <td>41.69</td>
+                            </tr>
+                            <tr>
+                                <td class="ticker-cell">NVDA</td>
+                                <td>45.94</td>
+                                <td>34.46</td>
+                                <td>N/A</td>
+                                <td>3.09</td>
+                                <td>41.29</td>
+                                <td>0.30</td>
+                                <td>115.46</td>
+                                <td>12.27</td>
+                                <td>51.69</td>
+                            </tr>
+                            <tr>
+                                <td class="ticker-cell">IONQ</td>
+                                <td>N/A</td>
+                                <td>-43.00</td>
+                                <td>N/A</td>
+                                <td>-1.51</td>
+                                <td>12.02</td>
+                                <td>N/A</td>
+                                <td>-52.11</td>
+                                <td>2.27</td>
+                                <td>N/A</td>
+                            </tr>
+                            <tr>
+                                <td class="ticker-cell">AMD</td>
+                                <td>84.79</td>
+                                <td>22.78</td>
+                                <td>N/A</td>
+                                <td>1.37</td>
+                                <td>3.24</td>
+                                <td>N/A</td>
+                                <td>3.90</td>
+                                <td>8.17</td>
+                                <td>8.02</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="chart-description">
+                    The fundamental analysis metrics provide a comprehensive view of the financial health and valuation of each semiconductor stock. 
+                    TSM demonstrates strong fundamentals with a reasonable P/E ratio of 25.25, solid earnings per share of $8.36, and an impressive profit margin of 41.69%. 
+                    The company's ROE of 31.64% indicates efficient use of shareholder equity, while the modest debt-to-equity ratio of 23.49% suggests conservative financial management. 
+                    These metrics position TSM as a financially robust investment option compared to its peers.
+                </p>
+            </div>
+
+            <!-- Stock Evaluation Summary -->
+            <div class="analysis-block">
+                <h3 class="block-title">Stock Evaluation Summary</h3>
+                <div class="table-container">
+                    <table class="evaluation-table">
+                        <thead>
+                            <tr>
+                                <th>Ticker</th>
+                                <th>FA Score</th>
+                                <th>TA Score</th>
+                                <th>Total Score</th>
+                                <th>Rating</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="buy-rating tsm-row">
+                                <td class="ticker-cell">TSM</td>
+                                <td>2</td>
+                                <td>3.0</td>
+                                <td>5.0</td>
+                                <td class="rating-cell buy">BUY</td>
+                            </tr>
+                            <tr class="buy-rating">
+                                <td class="ticker-cell">IONQ</td>
+                                <td>1</td>
+                                <td>3.0</td>
+                                <td>4.0</td>
+                                <td class="rating-cell buy">BUY</td>
+                            </tr>
+                            <tr class="neutral-rating">
+                                <td class="ticker-cell">NVDA</td>
+                                <td>2</td>
+                                <td>1.5</td>
+                                <td>3.5</td>
+                                <td class="rating-cell neutral">NEUTRAL</td>
+                            </tr>
+                            <tr class="neutral-rating">
+                                <td class="ticker-cell">AMD</td>
+                                <td>0</td>
+                                <td>1.5</td>
+                                <td>1.5</td>
+                                <td class="rating-cell neutral">NEUTRAL</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="chart-description">
+                    The stock evaluation summary combines fundamental analysis (FA) and technical analysis (TA) scores to provide an overall investment rating. 
+                    TSM achieves the highest total score of 5.0, earning a strong BUY rating based on its solid fundamentals and positive technical indicators. 
+                    The scoring methodology considers key financial metrics, technical momentum, and market positioning to deliver actionable investment recommendations. 
+                    TSM's leadership position is reinforced by its superior performance across both analytical dimensions.
+                </p>
+            </div>
+
+            <!-- Interactive Candlestick Chart -->
+            <div class="analysis-block">
+                <h3 class="block-title">Interactive Price Action Analysis</h3>
+                <div class="interactive-chart-container">
+                    <iframe src="canle_chart.html" width="100%" height="600" frameborder="0"></iframe>
+                </div>
+                <p class="chart-description">
+                    The interactive candlestick chart provides detailed price action analysis for TSM throughout 2024. 
+                    Users can explore different timeframes and observe the relationship between price movements and trading volume. 
+                    The chart includes range selectors for focused analysis and demonstrates the stock's progression from $100 to over $200, 
+                    highlighting key support and resistance levels, breakout patterns, and volume confirmation signals.
+                </p>
+            </div>
+
+            <!-- Historical Performance -->
+            <div class="analysis-block">
+                <h3 class="block-title">Long-term Historical Performance</h3>
+                <div class="chart-container">
+                    <img src="assets/images/TSM-closing-price.png" alt="TSM Historical Price" class="analysis-chart">
+                </div>
+                <p class="chart-description">
+                    TSM's long-term price chart reveals a compelling growth story spanning over a decade. 
+                    The stock has demonstrated remarkable resilience through various market cycles, including the COVID-19 pandemic and subsequent recovery. 
+                    The exponential growth pattern from 2020 onwards reflects the company's strategic positioning in the digital transformation and AI revolution. 
+                    This historical perspective provides confidence in the company's ability to navigate future challenges and capitalize on emerging opportunities.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- LSTM Model Section -->
+    <section id="lstm" class="section bg-light">
+        <div class="container">
+            <h2 class="section-title">LSTM Model for Stock Price Prediction</h2>
+            
+            <!-- LSTM Introduction -->
+            <div class="lstm-intro">
+                <h3 class="block-title">Understanding LSTM Neural Networks</h3>
+                <div class="lstm-explanation">
+                    <div class="lstm-text">
+                        <p>
+                            Long Short-Term Memory (LSTM) networks represent a sophisticated class of recurrent neural networks specifically designed to address the vanishing gradient problem in traditional RNNs. 
+                            LSTMs excel at learning long-term dependencies in sequential data, making them particularly well-suited for time series forecasting applications such as stock price prediction.
+                        </p>
+                        <p>
+                            The LSTM architecture incorporates three critical gates: the forget gate, input gate, and output gate. 
+                            The forget gate determines what information to discard from the cell state, the input gate decides which values to update, and the output gate controls what parts of the cell state to output. 
+                            This gating mechanism allows LSTMs to selectively remember or forget information over long sequences, capturing complex temporal patterns in stock price movements.
+                        </p>
+                    </div>
+                    <div class="lstm-architecture">
+                        <div class="architecture-diagram">
+                            <div class="gate forget-gate">
+                                <span>Forget Gate</span>
+                                <p>Decides what to forget</p>
+                            </div>
+                            <div class="gate input-gate">
+                                <span>Input Gate</span>
+                                <p>Decides what to store</p>
+                            </div>
+                            <div class="gate output-gate">
+                                <span>Output Gate</span>
+                                <p>Decides what to output</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Model Implementation -->
+            <div class="analysis-block">
+                <h3 class="block-title">TSM Price Prediction Model</h3>
+                <div class="model-details">
+                    <div class="model-specs">
+                        <h4>Model Specifications</h4>
+                        <ul class="spec-list">
+                            <li><strong>Architecture:</strong> Multi-layer LSTM with dropout regularization</li>
+                            <li><strong>Input Features:</strong> Historical price data (Open, High, Low, Close, Volume)</li>
+                            <li><strong>Sequence Length:</strong> 60-day lookback window</li>
+                            <li><strong>Training Period:</strong> 2012-2024 historical data</li>
+                            <li><strong>Validation:</strong> Walk-forward validation methodology</li>
+                            <li><strong>Optimization:</strong> Adam optimizer with learning rate scheduling</li>
+                        </ul>
+                    </div>
+                    <div class="model-performance">
+                        <h4>Model Performance Metrics</h4>
+                        <div class="metrics-grid">
+                            <div class="metric-item">
+                                <span class="metric-name">RMSE</span>
+                                <span class="metric-value">$5.613</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="metric-name">MAE</span>
+                                <span class="metric-value">$6.943</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="metric-name">R²</span>
+                                <span class="metric-value">0.742</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="metric-name">Accuracy</span>
+                                <span class="metric-value">96.212%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Interactive LSTM Prediction Chart -->
+            <div class="analysis-block">
+                <h3 class="block-title">Interactive LSTM Price Predictions</h3>
+                <div class="interactive-chart-container">
+                    <iframe src="stock_report.html" width="100%" height="700" frameborder="0"></iframe>
+                </div>
+                <p class="chart-description">
+                    The interactive LSTM prediction chart displays the model's forecasting capabilities over an extended historical period. 
+                    The blue line represents actual historical prices, while the red line shows the model's predictions. 
+                    The chart demonstrates the model's ability to capture major trends, seasonal patterns, and turning points in TSM's stock price. 
+                    Users can explore different time periods to understand the model's performance across various market conditions and volatility regimes.
+                </p>
+            </div>
+
+            <!-- Model Insights -->
+            <div class="analysis-block">
+                <h3 class="block-title">Key Model Insights and Limitations</h3>
+                <div class="insights-grid">
+                    <div class="insight-card positive">
+                        <h4>Strengths</h4>
+                        <ul>
+                            <li>Captures long-term trends and cyclical patterns effectively</li>
+                            <li>Adapts to changing market conditions through continuous learning</li>
+                            <li>Incorporates multiple technical indicators and volume data</li>
+                            <li>Provides probabilistic forecasts with confidence intervals</li>
+                        </ul>
+                    </div>
+                    <div class="insight-card negative">
+                        <h4>Limitations</h4>
+                        <ul>
+                            <li>Cannot predict black swan events or unprecedented market shocks</li>
+                            <li>Performance may degrade during periods of extreme volatility</li>
+                            <li>Requires substantial historical data for optimal performance</li>
+                            <li>Subject to overfitting without proper regularization</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Conclusion Section -->
+    <section id="conclusion" class="section">
+        <div class="container">
+            <h2 class="section-title">Investment Conclusion and Recommendations</h2>
+            
+            <!-- Executive Summary -->
+            <div class="conclusion-summary">
+                <h3 class="block-title">Executive Summary</h3>
+                <p class="summary-text">
+                    Based on comprehensive technical analysis, fundamental evaluation, and advanced LSTM modeling, Taiwan Semiconductor Manufacturing Company (TSM) emerges as the most compelling investment opportunity among the analyzed semiconductor stocks. 
+                    The company's exceptional financial performance, strategic market position, and favorable risk-return profile make it an attractive choice for both growth and value investors.
+                </p>
+            </div>
+
+            <!-- Key Findings -->
+            <div class="findings-section">
+                <h3 class="block-title">Key Investment Findings</h3>
+                <div class="findings-grid">
+                    <div class="finding-item">
+                        <div class="finding-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h4>Strong Financial Performance</h4>
+                        <p>TSM delivered exceptional results in 2025 with 42.6% year-to-date revenue growth, reaching NT$1.51 trillion in the first five months. The company maintains a robust outlook with projected mid-20% growth for the full year.</p>
+                    </div>
+                    <div class="finding-item">
+                        <div class="finding-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h4>AI Revolution Beneficiary</h4>
+                        <p>Positioned at the epicenter of the AI boom, TSM's AI-related revenue is expected to double in 2025 following a tripling in 2024. The company manufactures cutting-edge chips for NVIDIA, Apple, and other AI leaders.</p>
+                    </div>
+                    <div class="finding-item">
+                        <div class="finding-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <h4>Strategic Global Expansion</h4>
+                        <p>The $100 billion US investment plan demonstrates TSM's commitment to geographic diversification and supply chain resilience, reducing geopolitical risks while capturing growth opportunities.</p>
+                    </div>
+                    <div class="finding-item">
+                        <div class="finding-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h4>Optimal Risk-Return Profile</h4>
+                        <p>Among the analyzed stocks, TSM offers the most attractive risk-adjusted returns, combining strong growth potential with relatively lower volatility compared to peers like IONQ and AMD.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Market Context -->
+            <div class="market-context">
+                <h3 class="block-title">Market Context and Industry Outlook</h3>
+                <p>
+                    The semiconductor industry continues to benefit from multiple secular growth drivers including artificial intelligence, 5G deployment, electric vehicles, and Internet of Things applications. 
+                    TSM's dominant position in advanced process technologies (3nm and below) creates significant competitive moats and pricing power. 
+                    The company's customer base includes the world's leading technology companies, providing stable demand and long-term revenue visibility.
+                </p>
+                <p>
+                    Recent industry developments support a positive outlook for TSM. The global chip shortage has highlighted the critical importance of semiconductor manufacturing capabilities, 
+                    leading to increased investment in capacity expansion and technological advancement. TSM's planned capital expenditure of $38-42 billion in 2025 positions the company to capture this growing demand.
+                </p>
+            </div>
+
+            <!-- Risk Assessment -->
+            <div class="risk-assessment">
+                <h3 class="block-title">Risk Assessment and Mitigation</h3>
+                <div class="risk-grid">
+                    <div class="risk-category">
+                        <h4>Geopolitical Risks</h4>
+                        <p><strong>Risk:</strong> US-China trade tensions and Taiwan's strategic importance could impact operations.</p>
+                        <p><strong>Mitigation:</strong> Geographic diversification through US facilities and strong relationships with global customers.</p>
+                    </div>
+                    <div class="risk-category">
+                        <h4>Cyclical Nature</h4>
+                        <p><strong>Risk:</strong> Semiconductor industry is subject to cyclical demand fluctuations.</p>
+                        <p><strong>Mitigation:</strong> Diversified customer base and exposure to secular growth trends like AI and 5G.</p>
+                    </div>
+                    <div class="risk-category">
+                        <h4>Technology Disruption</h4>
+                        <p><strong>Risk:</strong> Potential disruption from new technologies or manufacturing processes.</p>
+                        <p><strong>Mitigation:</strong> Continuous R&D investment and leadership in advanced process nodes.</p>
+                    </div>
+                    <div class="risk-category">
+                        <h4>Competition</h4>
+                        <p><strong>Risk:</strong> Increasing competition from other foundries and in-house chip development.</p>
+                        <p><strong>Mitigation:</strong> Technology leadership, scale advantages, and long-term customer partnerships.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Investment Recommendation -->
+            <div class="recommendation">
+                <h3 class="block-title">Investment Recommendation</h3>
+                <div class="recommendation-card">
+                    <div class="recommendation-header">
+                        <span class="recommendation-rating">BUY</span>
+                        <span class="confidence-level">High Confidence</span>
+                    </div>
+                    <div class="recommendation-details">
+                        <div class="target-price">
+                            <span class="label">Target Price:</span>
+                            <span class="value">$240-260</span>
+                        </div>
+                        <div class="time-horizon">
+                            <span class="label">Time Horizon:</span>
+                            <span class="value">12-18 months</span>
+                        </div>
+                        <div class="upside-potential">
+                            <span class="label">Upside Potential:</span>
+                            <span class="value">15-25%</span>
+                        </div>
+                    </div>
+                    <p class="recommendation-rationale">
+                        TSM represents a compelling investment opportunity driven by its market leadership, exposure to AI growth, strong financial performance, and strategic positioning. 
+                        The company's ability to maintain technological leadership while expanding globally provides multiple avenues for value creation. 
+                        Current valuation levels offer attractive entry points for long-term investors seeking exposure to the semiconductor sector.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Final Thoughts -->
+            <div class="final-thoughts">
+                <h3 class="block-title">Final Investment Perspective</h3>
+                <p>
+                    Taiwan Semiconductor Manufacturing Company stands as a cornerstone of the modern technology ecosystem, with unparalleled manufacturing capabilities and strategic positioning in high-growth markets. 
+                    The convergence of artificial intelligence, advanced computing, and digital transformation creates a multi-year growth runway for the company. 
+                    While geopolitical risks and industry cyclicality present challenges, TSM's competitive advantages, financial strength, and strategic initiatives position it well to navigate these headwinds and deliver superior returns to shareholders.
+                </p>
+                <p>
+                    Investors seeking exposure to the semiconductor sector should consider TSM as a core holding, benefiting from its market leadership, technological innovation, and exposure to transformative trends shaping the future of technology. 
+                    The company's commitment to sustainability, operational excellence, and stakeholder value creation further enhances its investment appeal for ESG-conscious investors.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Analysis Report</h4>
+                    <p>Comprehensive semiconductor stock analysis focusing on Taiwan Semiconductor Manufacturing Company (TSM)</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Methodology</h4>
+                    <ul>
+                        <li>Technical Analysis</li>
+                        <li>Fundamental Analysis</li>
+                        <li>LSTM Modeling</li>
+                        <li>Risk Assessment</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Data Sources</h4>
+                    <ul>
+                        <li>Yahoo Finance API</li>
+                        <li>TSMC Investor Relations</li>
+                        <li>Market Research Reports</li>
+                        <li>Financial News Sources</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Disclaimer</h4>
+                    <p>This analysis is for educational purposes only and should not be considered as investment advice. Please consult with financial professionals before making investment decisions.</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Semiconductor Stock Analysis.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
