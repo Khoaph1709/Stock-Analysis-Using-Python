@@ -26,14 +26,19 @@ The project is organized into the following directories:
 │       ├── TA_visulization.png
 │       ├── TSM-closing-price.png
 │       └── Trading_Volume.png
+├── data/
+│   └── # Stock data files will be stored here
 ├── notebooks/
 │   └── stock-market-analysis-final.ipynb
+├── requirements.txt
 └── README.md
 ```
 
 - **Root Directory**: Contains all the files related to the web application (HTML, CSS, JavaScript) directly, making it compatible with GitHub Pages.
     - `assets/images/`: Stores all the image assets used in the web application, such as charts and plots generated from the analysis.
+- `data/`: This directory is intended to store all raw and processed stock data files.
 - `notebooks/`: Contains the Jupyter Notebooks used for data collection, analysis, and model development.
+- `requirements.txt`: Lists all the Python dependencies required for the project.
 - `README.md`: This file, providing an overview of the project, its structure, and instructions for setup and usage.
 
 ## Features
@@ -52,7 +57,6 @@ To set up and run this project locally, follow these steps:
 
 - Python 3.x
 - Jupyter Notebook
-- Required Python libraries (install via `pip`): `pandas`, `numpy`, `matplotlib`, `seaborn`, `scikit-learn`, `tensorflow` (or `keras`), `yfinance`, `beautifulsoup4` (if parsing HTML in Python).
 
 ### Installation
 
@@ -62,11 +66,27 @@ To set up and run this project locally, follow these steps:
    cd Stock-Analysis-Using-Python
    ```
 
-2. **Install Python dependencies**:
+2. **Create a virtual environment (recommended)**:
+   It is highly recommended to create a virtual environment to manage project dependencies and avoid conflicts with other Python projects.
    ```bash
-   pip install -r requirements.txt # (Assuming you will create a requirements.txt based on the notebook)
+   python -m venv venv
    ```
-   *Note: A `requirements.txt` file is not currently in the repository. You may need to create one based on the imports in `stock-market-analysis-final.ipynb`.*
+
+3. **Activate the virtual environment**:
+   - On macOS and Linux:
+     ```bash
+     source venv/bin/activate
+     ```
+   - On Windows:
+     ```bash
+     .\venv\Scripts\activate
+     ```
+
+4. **Install Python dependencies**:
+   With the virtual environment activated, install the required libraries using `pip`:
+   ```bash
+   pip install -r requirements.txt
+   ```
 
 ### Running the Analysis
 
@@ -75,7 +95,7 @@ To set up and run this project locally, follow these steps:
    ```bash
    jupyter notebook notebooks/stock-market-analysis-final.ipynb
    ```
-2. **Run all cells**: Execute all cells in the notebook to perform data collection, analysis, and model training. This will also generate the necessary image files in `assets/images/`.
+2. **Run all cells**: Execute all cells in the notebook to perform data collection, analysis, and model training. This will also generate the necessary data files in `data/`.
 
 ### Viewing the Web Application
 
@@ -108,5 +128,5 @@ Contributions are welcome! Please feel free to open issues or submit pull reques
 
 ## Contact
 
-For any questions or feedback, please contact [Your Name/Email/GitHub Profile].
+For any questions or feedback, please contact khoa555.rubik@gmail.com.
 
