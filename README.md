@@ -85,7 +85,7 @@ To set up and run this project locally, follow these steps:
 4. **Install Python dependencies**:
    With the virtual environment activated, install the required libraries using `pip`:
    ```bash
-   pip install -r requirements.txt
+   pip install -r ../requirements.txt
    ```
 
 ### Running the Analysis
